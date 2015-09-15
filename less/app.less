@@ -1,4 +1,66 @@
+html {
+  height: 100%;
+}
+
 .tc-header {
   background: @grey1;
   height: 118px;
+}
+
+.tc-toolbar {
+
+  ul {
+    width: 100%;
+  }
+
+  &.dark {
+    background-color: @grey1;
+
+    li.extend {
+      width: 100%;
+    }
+  }
+}
+
+.tc-list {
+  li {
+    line-height: 40px;
+  }
+
+  ul:last-child li:last-child {
+    margin-bottom: 40px;
+  }
+}
+
+.tc-sidebar {
+  .tc-input.block + [icon],
+  .tc-input.block + [data-icon] {
+    top: 13px;
+  }
+}
+
+#videos .tc-checkbox, #videos.edit a, #videos .remove-toolbar, #videos.edit .edit-toolbar {
+  display: none;
+}
+
+#videos.edit .tc-checkbox, #videos.edit .remove-toolbar {
+  display: inline-block;
+}
+
+#main {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  top: 118px;
+
+  .tc-content, video {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .video-container {
+    text-align: center;
+    width: 100%;
+    height: 75%;
+  }
 }
