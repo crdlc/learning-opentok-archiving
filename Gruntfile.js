@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     concat: {
       default: {
        src: [
-          '../icons/fonts/icons.css',
+          'bower_components/icons/fonts/icons.css',
           'css/components.opentok.css',
         ],
         dest: 'css/components.opentok.css'
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 
     copy: {
       eot: {
-        src: '../icons/fonts/icons.eot',
+        src: 'bower_components/icons/fonts/icons.eot',
         dest: 'css/icons.eot',
       }
     },
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 
     watch: {
       styles: {
-        files: ['../**/*.less'],
+        files: ['/**/*.less'],
         tasks: ['less','concat','autoprefixer','cssmin'],
         options: {
           nospawn: true,
