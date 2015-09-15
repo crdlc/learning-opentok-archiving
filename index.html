@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TEF components demo</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/components.opentok.css">
+  </head>
+
+  <body>
+    <div class="tc-wrapper">
+      <header class="tc-header">
+        <nav>
+          <button id="show-menu-btn" onclick="showMenu()" class="tc-menu" data-icon="menu"></button>
+          <button id="hide-menu-btn" onclick="hideMenu()" class="tc-close" data-icon="close"></button>
+          <ul id="menu" onclick="hideMenu()">
+            <li><span>Hello George!</span><i data-icon="user"></i></li>
+            <li><a href=""><span>Help</span><i data-icon="help_circle"></i></a></li>
+            <li><a href=""><span>Exit</span><i data-icon="close_circle"></i></a></li>
+          </ul>
+        </nav>
+        <h1><a href="/">TEF Components</a></h1>
+        <h2>Telefonica</h2>
+      </header>
+
+      <div data-columns="4 md3 sm1" class="tc-relative">
+        <nav class="tc-sidebar absolute" data-columns="sm0">
+          <ul class="tc-tabs" data-columns="3">
+            <li><i data-icon="user"></i></li>
+            <li class="active"><i data-icon="search"></i></li>
+            <li><i data-icon="help_circle"></i></li>
+          </ul>
+          <nav class="tc-toolbar">
+            <ul>
+              <li><i data-icon="user"></i></li>
+              <li>Edit</li>
+              <li class="active"><i data-icon="search"></i></li>
+              <li><i data-icon="help_circle"></i></li>
+            </ul>
+          </nav>
+          <div class="tc-list">
+            <ul>
+              <li>
+                <input type="text" class="tc-input icon small block">
+                <i data-icon="search"></i>
+              </li>
+            </ul>
+            <header>Group 1</header>
+            <ul>
+              <li><a href="">List item 1</a></li>
+              <li><a href="">List item 2</a></li>
+              <li><a href="">List item 3</a></li>
+              <li><a href="">List item 4</a></li>
+              <li><a href="">List item 5</a></li>
+              <li><a href="">List item 6</a></li>
+            </ul>
+            <header>Group 2</header>
+            <ul>
+              <li><a href="">List item 1</a></li>
+              <li><a href="">List item 2</a></li>
+              <li><a href="">List item 3</a></li>
+              <li><a href="">List item 4</a></li>
+              <li><a href="">List item 5</a></li>
+              <li><a href="">List item 6</a></li>
+            </ul>
+          </div>
+        </nav>
+        <section class="tc-content" data-column-offset="1 md1 sm0" data-column-span="3 md2 sm1">
+          <h2>Forms</h1>
+          <p>This page shows basic form elements.</p>
+          <article data-columns="2 sm1" class="tc-gutter">
+            <div class="tc-row">
+              <label>Consectetuer</label>
+              <input type="text" class="tc-input block">
+            </div>
+            <div class="tc-row">
+              <label>Adipiscing elit</label>
+              <input type="text" class="tc-input block">
+            </div>
+          </article>
+          <article class="tc-row">
+            <label>Sed diam nonummy</label>
+            <input type="text" class="tc-input block">
+          </article>
+          <article data-columns="4 sm2 xs1" class="tc-gutter">
+            <div class="tc-row" data-column-span="2 sm2 xs1">
+              <label>Nibh euismod</label>
+              <input type="text" class="tc-input block">
+            </div>
+            <div class="tc-row">
+              <label>Tincidunt</label>
+              <div class="tc-dropdown block" data-icon="down">
+                <select name="state">
+                  <option>Volutpat</option>
+                  <option>Adipiscing</option>
+                  <option>Nonummy</option>
+                  <option>Euismod</option>
+                </select>
+              </div>
+            </div>
+            <div class="tc-row">
+              <label>Laoreet</label>
+              <input type="text" class="tc-input block">
+            </div>
+          </article>
+          <article class="tc-row">
+            <label>Magna aliquam</label>
+            <textarea class="tc-input block"></textarea>
+          </article>
+          <br>
+          <article class="tc-row">
+            <p>Lorem ipsum</p>
+            <label class="tc-radio">
+              <input type="radio" name="radio1" checked>
+              <span>Lorem ipsum dolor sit amet</span>
+            </label>
+            <label class="tc-radio">
+              <input type="radio" name="radio1">
+              <span>Hendrerit in vulputate velit esse molestie </span>
+            </label>
+            <label class="tc-radio">
+              <input type="radio" name="radio1">
+              <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat </span>
+            </label>
+          </article>
+          <br>
+          <article class="tc-row">
+            <p>Laoreet dolore</p>
+            <label class="tc-checkbox">
+              <input type="checkbox" checked>
+              <span data-icon="check">Lorem ipsum dolor sit amet</span>
+            </label>
+            <label class="tc-checkbox">
+              <input type="checkbox">
+              <span data-icon="check">Hendrerit in vulputate velit esse molestie </span>
+            </label>
+            <label class="tc-checkbox">
+              <input type="checkbox">
+              <span data-icon="check">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat </span>
+            </label>
+          </article>
+          <br>
+          <div class="tc-row">
+            <p>Euismod tincidunt</p>
+            <label class="tc-switch">
+              <input type="checkbox">
+              <span>euismod tincidunt ut laoreet dolore magna aliquam erat volutpat</span>
+            </label>
+          </div>
+          <br>
+          <footer class="tc-right">
+            <button class="tc-button subdued">Cancel</button>
+            <button class="tc-button positive">Submit</button>
+          </footer>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      var menu = document.getElementById('menu');
+      var hideMenuBtn = document.getElementById('hide-menu-btn');
+
+      function showMenu() {
+        menu.setAttribute('class','show');
+        hideMenuBtn.setAttribute('class','tc-close show');
+      }
+
+      function hideMenu() {
+        menu.setAttribute('class','');
+        hideMenuBtn.setAttribute('class','tc-close');
+      }
+    </script>
+  </body>
+</html>

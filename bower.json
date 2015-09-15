@@ -1,0 +1,6 @@
+{
+  "name": "opentok-recording-manager",
+  "dependencies": {
+    "theme": "tef-components/theme_telefonica#0.2.51"
+  }
+}
