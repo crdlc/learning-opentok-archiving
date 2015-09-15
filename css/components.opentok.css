@@ -1781,7 +1781,7 @@ label {
   left: 0;
   height: 32px;
   padding: 0 32px;
-  background: #003245;
+  background: black;
   color: white;
   z-index: 98;
 }
@@ -1814,11 +1814,11 @@ label {
   display: block;
 }
 .tc-header li {
-  color: #003245;
+  color: black;
   font-size: 12px;
   line-height: 14px;
   padding: 9px 40px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid rgba(48, 48, 49, 0.95);
   text-align: right;
 }
 @media only screen and (min-width: 768px) {
@@ -1835,7 +1835,7 @@ label {
   top: -2px;
 }
 .tc-header li a {
-  color: #003245;
+  color: black;
   text-decoration: none;
 }
 @media only screen and (min-width: 768px) {
@@ -1850,7 +1850,7 @@ label {
 }
 .tc-header li [icon],
 .tc-header li [data-icon] {
-  color: #b6c6cb;
+  color: white;
   padding-left: 4px;
   font-size: 16px;
 }
@@ -1863,7 +1863,7 @@ label {
   width: 40px;
   border: none;
   background: white;
-  color: #003245;
+  color: black;
   font-size: 25px;
   z-index: 99;
   cursor: pointer;
@@ -1885,13 +1885,13 @@ label {
 .tc-header .tc-close:active,
 .tc-header .tc-menu:active {
   background: white;
-  color: #003245;
+  color: black;
 }
 .tc-header .tc-close {
   display: none;
 }
 .tc-header .tc-menu {
-  background: #003245;
+  background: black;
   color: white;
 }
 @media only screen and (min-width: 768px) {
@@ -2157,4 +2157,7 @@ label {
 .tc-list a.active {
   color: #fff;
   background-color: #9ea5a9;
+}
+.tc-header {
+  background: rgba(48, 48, 49, 0.95);
 }

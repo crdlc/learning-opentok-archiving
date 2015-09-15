@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 
     watch: {
       styles: {
-        files: ['/**/*.less'],
+        files: ['../**/*.less'],
         tasks: ['less','concat','autoprefixer','cssmin'],
         options: {
           nospawn: true,
