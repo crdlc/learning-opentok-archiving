@@ -2850,8 +2850,11 @@ html {
 .tc-toolbar ul {
   width: 100%;
 }
-.tc-toolbar.dark {
-  background-color: rgba(48, 48, 49, 0.95);
+.tc-toolbar li.negative {
+  float: right;
+  background-color: #ca3430;
+  color: white;
+  border-color: #ca3430;
 }
 .tc-toolbar.dark li.extend {
   width: 100%;
@@ -2865,6 +2868,9 @@ html {
 .tc-sidebar .tc-input.block + [icon],
 .tc-sidebar .tc-input.block + [data-icon] {
   top: 13px;
+}
+.tc-checkbox {
+  width: 100%;
 }
 #videos .tc-checkbox,
 #videos.edit a,
@@ -2881,6 +2887,15 @@ html {
   width: 100%;
   bottom: 0;
   top: 118px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#main .remove-toolbar li {
+  width: 50%;
+  padding: 0;
+  border: 0;
 }
 #main .tc-content,
 #main video {

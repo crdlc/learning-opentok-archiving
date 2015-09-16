@@ -13,9 +13,14 @@ html {
     width: 100%;
   }
 
-  &.dark {
-    background-color: @grey1;
+  li.negative {
+    float: right;
+    background-color: @negative;
+    color: @negativeText;
+    border-color: @negativeBorder;
+  }
 
+  &.dark {
     li.extend {
       width: 100%;
     }
@@ -39,6 +44,10 @@ html {
   }
 }
 
+.tc-checkbox {
+  width: 100%;
+}
+
 #videos .tc-checkbox, #videos.edit a, #videos .remove-toolbar, #videos.edit .edit-toolbar {
   display: none;
 }
@@ -52,6 +61,13 @@ html {
   width: 100%;
   bottom: 0;
   top: 118px;
+  user-select: none;
+
+  .remove-toolbar li {
+    width: 50%;
+    padding: 0;
+    border: 0;
+  }
 
   .tc-content, video {
     max-width: 100%;
