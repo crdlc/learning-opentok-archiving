@@ -1,26 +1,15 @@
 !function(global) {
   'use strict';
 
-  var get = function() {
-    return [
-      {
-        url: 'https://github.com/nraychaudhuri/html5-rocks/raw/master/code/' +
-             'sample_video.ogg',
-        timestamp: Date.now() + (3* 24 * 60 * 60 * 1000) + (60 * 1000)
-      }, {
-        url: 'https://github.com/nraychaudhuri/html5-rocks/raw/master/code/' +
-             'sample_video.ogg',
-        timestamp: Date.now()
-      }, {
-        url: 'https://github.com/nraychaudhuri/html5-rocks/raw/master/code/' +
-             'sample_video.ogg',
-        timestamp: Date.now() - (24 * 60 * 60 * 1000) - (60 * 1000)
-      }, {
-        url: 'https://github.com/nraychaudhuri/html5-rocks/raw/master/code/' +
-             'sample_video.ogg',
-        timestamp: Date.now() - (4 * 60 * 60 * 1000)
-      }
-    ];
+  var get = function(callback) {
+    var ref = new Firebase('https://opentok-recordings.firebaseio.com/videos');
+
+    ref.once('value', function onSuccess(snapshot) {
+      callback(snapshot.val());
+    }, function onError(errorObject) {
+      console.log('Error getting videos from DB', errorObject);
+      callback([]);
+    });
   };
 
   global.DB = {

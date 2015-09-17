@@ -1,3 +1,5 @@
 
 UI.init();
-UI.render(DB.get(), true);
+DB.get(function(result) {
+  UI.render(result, true);
+});

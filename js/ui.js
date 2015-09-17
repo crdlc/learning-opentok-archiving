@@ -2,6 +2,21 @@
   'use strict';
 
   var init = function() {
+    addToolbarHandlers();
+    addListHandler();
+  };
+
+  var addListHandler = function() {
+    var list = document.querySelector('.video-list-content');
+
+    list.addEventListener('click', function(e) {
+      var player = document.querySelector('#player');
+      var url = e.target.dataset.url;
+      url && (player.src = e.target.dataset.url);
+    });
+  };
+
+  var addToolbarHandlers = function() {
     var videos = document.getElementById('videos');
 
     var editToolbar = document.querySelector('.edit-toolbar');
@@ -77,6 +92,7 @@
 
     var a = document.createElement('a');
     a.href = '#';
+    a.dataset.url = video.url;
     a.textContent = text;
 
     item.appendChild(label);
