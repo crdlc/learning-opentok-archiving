@@ -106,20 +106,27 @@
     cleanList && (list.innerHTML = '');
 
     var sortingDescending = function(a, b) {
-      var tA = a.timestamp;
-      var tB = b.timestamp;
+      var tA = videos[a].timestamp;
+      var tB = videos[b].timestamp;
 
       return tB - tA;
-    }
+    };
 
-    videos = Array.isArray(videos) ? videos : [];
-    videos.sort(sortingDescending);
+    var extractVideo = function(id) {
+      var video = videos[id];
+      video.id = id;
+      return video;
+    };
 
     var docFragment = document.createDocumentFragment();
 
     var lastVideoAdded = null;
     var currentList = null;
-    videos.forEach(function(video) {
+
+    Object.keys(videos)
+          .sort(sortingDescending)
+          .map(extractVideo)
+          .forEach(function(video) {
       if (!isSameCalendarDay(video, lastVideoAdded)) {
         var header = document.createElement('header');
         header.textContent = getHeaderLabel(video);
