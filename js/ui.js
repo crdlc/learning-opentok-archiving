@@ -91,7 +91,6 @@
     label.appendChild(span);
 
     var a = document.createElement('a');
-    a.href = '#';
     a.dataset.url = video.url;
     a.textContent = text;
 
