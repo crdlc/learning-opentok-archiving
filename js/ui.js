@@ -16,31 +16,62 @@
     });
   };
 
-  var addToolbarHandlers = function() {
+  var toggleEdition = function() {
     var videos = document.getElementById('videos');
+    videos.classList.toggle('edit');
+  };
 
+  var removeItems = function() {
+    var items = document.querySelectorAll('.video-list-content input:checked');
+
+    if (items.length === 0) {
+      return;
+    }
+
+    var modal = document.querySelector('.remove-modal');
+    var dismissButton = modal.querySelector('.dismiss');
+    var removeButton = modal.querySelector('.remove');
+
+    modal.classList.toggle('show');
+
+    var onClicked = function() {
+      dismissButton.removeEventListener('click', onClicked);
+      removeButton.removeEventListener('click', onRemoveClicked);
+      modal.classList.toggle('show');
+    };
+
+    var onRemoveClicked = function() {
+      var ids = Array.prototype.map.call(items, function(item) {
+        item = item.parentNode.parentNode; // <li> <label> <input>
+        var list = item.parentNode;
+        list.removeChild(item);
+
+        if (!list.children.length) {
+          var header = document.getElementById(list.dataset.belongsTo);
+          header && header.parentNode.removeChild(header);
+        }
+
+        return item.dataset.id;
+      });
+
+      onClicked();
+      toggleEdition();
+      DB.remove(ids);
+    };
+
+    dismissButton.addEventListener('click', onClicked);
+    removeButton.addEventListener('click', onRemoveClicked);
+  };
+
+  var addToolbarHandlers = function() {
     var editToolbar = document.querySelector('.edit-toolbar');
-
-    editToolbar.addEventListener('click', function() {
-      videos.classList.toggle('edit');
-    });
+    editToolbar.addEventListener('click', toggleEdition);
 
     var cancelButton = document.querySelector('.remove-toolbar .cancel');
-
-    cancelButton.addEventListener('click', function cancelClicked() {
-      videos.classList.toggle('edit');
-    });
+    cancelButton.addEventListener('click', toggleEdition);
 
     var removeButton = document.querySelector('.remove-toolbar .remove');
-
-    removeButton.addEventListener('click', function() {
-      var modal = document.querySelector('.remove-modal');
-      modal.classList.toggle('show');
-      modal.addEventListener('click', function modalClicked() {
-        modal.removeEventListener('click', modalClicked);
-        modal.classList.toggle('show');
-      });
-    });
+    removeButton.addEventListener('click', removeItems);
   };
 
   var getVideoLabel = function(video) {
@@ -76,6 +107,7 @@
 
   var createVideoItem = function(video) {
     var item = document.createElement('li');
+    item.dataset.id = video.id;
 
     var label = document.createElement('label');
     label.classList.add('tc-checkbox');
@@ -129,10 +161,12 @@
           .forEach(function(video) {
       if (!isSameCalendarDay(video, lastVideoAdded)) {
         var header = document.createElement('header');
+        var id = header.id = 'header-' + video.id;
         header.textContent = getHeaderLabel(video);
         docFragment.appendChild(header);
 
         currentList = document.createElement('ul');
+        currentList.dataset.belongsTo = id;
         docFragment.appendChild(currentList);
       }
 
