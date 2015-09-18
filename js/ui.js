@@ -2,8 +2,14 @@
   'use strict';
 
   var init = function() {
+    setRoomName(Utils.getRoomName());
     addToolbarHandlers();
     addListHandler();
+  };
+
+  var setRoomName = function(roomName) {
+    var element = document.getElementById('roomName');
+    element.textContent = roomName;
   };
 
   var addListHandler = function() {

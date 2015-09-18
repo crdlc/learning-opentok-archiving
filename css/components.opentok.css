@@ -2907,3 +2907,10 @@ html {
   width: 100%;
   height: 75%;
 }
+[icon="users"]:before,
+[data-icon="users"]:before {
+  content: "\f0c0";
+}
+.room-name {
+  font-weight: bold;
+}

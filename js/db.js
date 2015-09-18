@@ -3,11 +3,12 @@
 
   var rootRef = new Firebase('https://ot-archiving.firebaseio.com');
 
-  var get = function(callback) {
-    var videosRef = rootRef.child('videos');
+  var videosRef = rootRef.child(Utils.getRoomName() + '/videos');
 
+  var get = function(callback) {
     videosRef.once('value', function onSuccess(snapshot) {
-      callback(snapshot.val());
+      var value = snapshot.val();
+      value && callback(value);
     }, function onError(errorObject) {
       console.log('Error getting videos from DB', errorObject);
       callback({});
@@ -16,7 +17,6 @@
 
   var remove = function(ids) {
     ids = Array.isArray(ids) ? ids : [];
-    var videosRef = rootRef.child('videos');
     ids.forEach(function(id) {
       var video = videosRef.child(id);
       video && video.remove();

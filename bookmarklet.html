@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Meet OpenTok - Bookmarklet</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+  <a href="javascript:
+    var archiveStatus = document.getElementById('archiveStatus');
+    var url = archiveStatus.querySelector('a').href;
+    var roomName = url.match(/tokbox\.com\/(.*?)\/archive/i)[1];
+
+    var q = document.createElement('script');
+    q.src='https://cdn.firebase.com/js/client/2.2.1/firebase.js';
+    q.onload = function() {
+      var ref = new Firebase('https://ot-archiving.firebaseio.com/' + roomName + '/videos');
+
+      var timestamp = Date.now();
+
+      var node = {
+        url: url,
+        timestamp: timestamp
+      };
+
+      ref.once('value', function(snapshot) {
+        if (snapshot.exists()) {
+          ref.child(timestamp).set(node);
+        } else {
+          ref = new Firebase('https://ot-archiving.firebaseio.com/');
+          ref.child(roomName).child('videos').child(timestamp).set(node);
+        }
+      });
+    };
+    document.body.appendChild(q);
+
+    void 0;
+  ">Save meet opentok recording</a>
+  </body>
+</html>

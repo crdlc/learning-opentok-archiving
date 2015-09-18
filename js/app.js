@@ -1,6 +1,15 @@
 
-UI.init();
+!function(global) {
+  'use strict';
 
-DB.get(function(result) {
-  UI.render(result, true);
-});
+  var init = function() {
+    UI.init();
+
+    DB.get(function(result) {
+      UI.render(result, true);
+    });
+  };
+
+  init();
+
+}(this);
