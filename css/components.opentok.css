@@ -2883,10 +2883,11 @@ html {
   display: inline-block;
 }
 #main {
-  position: absolute;
-  width: 100%;
+  height: 100%;
   bottom: 0;
-  top: 118px;
+  height: -webkit-calc(100% - 118px);
+  height: calc(100% - 118px);
+  top: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -2897,15 +2898,14 @@ html {
   padding: 0;
   border: 0;
 }
-#main .tc-content,
-#main video {
-  max-width: 100%;
+#main .tc-content {
   height: 100%;
+  padding: 10px;
 }
-#main .video-container {
-  text-align: center;
+#main .tc-content iframe {
   width: 100%;
-  height: 75%;
+  height: 100%;
+  border: 0;
 }
 [icon="users"]:before,
 [data-icon="users"]:before {

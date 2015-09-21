@@ -8,8 +8,9 @@
   </head>
   <body>
   <a href="javascript:
-    var url = document.querySelector('body video').src;
-    var roomName = document.querySelector('body h1').textContent;
+    var archiveStatus = document.getElementById('archiveStatus');
+    var url = archiveStatus.querySelector('a').href;
+    var roomName = url.match(/tokbox\.com\/(.*?)\/archive/i)[1];
 
     var q = document.createElement('script');
     q.src='https://cdn.firebase.com/js/client/2.2.1/firebase.js';
@@ -27,7 +28,7 @@
         if (error) {
           alert('Synchronization failed');
         } else {
-          alert('Synchronization to the Firebase servers has completed');
+          alert('Synchronization ended');
         }
       };
 

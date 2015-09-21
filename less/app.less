@@ -57,10 +57,10 @@ html {
 }
 
 #main {
-  position: absolute;
-  width: 100%;
+  height: 100%;
   bottom: 0;
-  top: 118px;
+  height: calc(~"100% - 118px");
+  top: 0;
   user-select: none;
 
   .remove-toolbar li {
@@ -69,15 +69,15 @@ html {
     border: 0;
   }
 
-  .tc-content, video {
-    max-width: 100%;
+  .tc-content {
     height: 100%;
+    padding: 10px;
   }
 
-  .video-container {
-    text-align: center;
+  .tc-content iframe {
     width: 100%;
-    height: 75%;
+    height: 100%;
+    border: 0;
   }
 }
 
