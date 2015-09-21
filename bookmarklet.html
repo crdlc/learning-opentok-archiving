@@ -8,9 +8,8 @@
   </head>
   <body>
   <a href="javascript:
-    var archiveStatus = document.getElementById('archiveStatus');
-    var url = archiveStatus.querySelector('a').href;
-    var roomName = url.match(/tokbox\.com\/(.*?)\/archive/i)[1];
+    var url = document.querySelector('body video').src;
+    var roomName = document.querySelector('body h1').textContent;
 
     var q = document.createElement('script');
     q.src='https://cdn.firebase.com/js/client/2.2.1/firebase.js';
@@ -24,12 +23,21 @@
         timestamp: timestamp
       };
 
+      var onComplete = function(error) {
+        if (error) {
+          alert('Synchronization failed');
+        } else {
+          alert('Synchronization to the Firebase servers has completed');
+        }
+      };
+
       ref.once('value', function(snapshot) {
         if (snapshot.exists()) {
-          ref.child(timestamp).set(node);
+          ref.child(timestamp).set(node, onComplete);
         } else {
           ref = new Firebase('https://ot-archiving.firebaseio.com/');
-          ref.child(roomName).child('videos').child(timestamp).set(node);
+          ref.child(roomName).child('videos').child(timestamp).set(node,
+                                                                   onComplete);
         }
       });
     };

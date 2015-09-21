@@ -6,7 +6,7 @@
   var videosRef = rootRef.child(Utils.getRoomName() + '/videos');
 
   var get = function(callback) {
-    videosRef.once('value', function onSuccess(snapshot) {
+    videosRef.on('value', function onSuccess(snapshot) {
       var value = snapshot.val();
       value && callback(value);
     }, function onError(errorObject) {
